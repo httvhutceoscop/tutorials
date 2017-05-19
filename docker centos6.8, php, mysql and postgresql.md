@@ -15,12 +15,29 @@ To understand docker, you can visit its homepage.
 - For windows 10: use "Docker for Window"
 - For windows 7: use "Docker Toolbox"
 2. Install docker nomarlly by press next button.
+# Setup docker machine
+List existed docker machine
+```
+docker-machine ls
+```
+Create new docker machine. Docker machine default is created when installing docker toolbox.
 
+Default:
+```
+docker-machine create --driver virtualbox testA
+```
+With ```--virtualbox-memory``` set to ```8096```
+```
+docker-machine create --driver virtualbox --virtualbox-memory 8096 testB
+```
 # Install containers
 1. Pull image
 You can visit https://hub.docker.com/ to see more image docker.
 Open Docker Quickstart Terminal and enter command:
+
 ```
+docker-machine ssh default
+
 docker pull image centos:6.8
 ```
 And to list existed images:

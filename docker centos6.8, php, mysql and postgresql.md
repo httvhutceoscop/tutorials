@@ -4,21 +4,21 @@
 * PHP：5.6.27
 * Postgresql: 9.3
 
-# I. What is docker?
+# What is docker?
 To understand docker, you can visit its homepage.
-- [https://www.docker.com/what-docker](https://www.docker.com/what-docker)  
-- [https://blog.duyetdev.com/2015/12/docker-la-gi-co-ban-ve-docker.html#.WBhOoS2LSUk](https://blog.duyetdev.com/2015/12/docker-la-gi-co-ban-ve-docker.html#.WBhOoS2LSUk)  
+- https://www.docker.com/what-docker
+- https://blog.duyetdev.com/2015/12/docker-la-gi-co-ban-ve-docker.html#.WBhOoS2LSUk
 
 # Setup docker
 1. Download docker:
-- [https://docs.docker.com/engine/installation/windows/] (https://docs.docker.com/engine/installation/windows/)
+- https://docs.docker.com/engine/installation/windows/
 - For windows 10: use "Docker for Window"
 - For windows 7: use "Docker Toolbox"
 2. Install docker nomarlly by press next button.
 
 # Install containers
 1. Pull image
-You can visit [https://hub.docker.com/](https://hub.docker.com/) to see more image docker.
+You can visit https://hub.docker.com/ to see more image docker.
 Open Docker Quickstart Terminal and enter command:
 ```
 docker pull image centos:6.8
@@ -87,7 +87,7 @@ docker exect -it marc2 bash
 ```
 marc2 is container's name is created above.
 
-#### Install MariaDB
+### Install MariaDB
 You only need do step by step below:
 ```
 yum update && yum install epel-release
@@ -137,7 +137,13 @@ FLUSH PRIVILEGES;
 service mysql restart
 ```
 
-#### Install apache
+### Install postgresql
+Ref to install: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-6
+And ref to allow remote connection to postgresql database using psql: http://www.thegeekstuff.com/2014/02/enable-remote-postgresql-connection/?utm_source=tuicool
+
+Maybe you must create role for postgres, see: https://www.postgresql.org/docs/9.3/static/sql-createrole.html
+
+### Install apache
 ```
 yum --enablerepo=remi install php php-common
 yum --enablerepo=remi install php-mysqlnd php-pgsql php-pecl-mongo php-pdo php-pecl-memcache php-pecl-memcached php-gd php-xml php-mbstring php-mcrypt php-pecl-apcu php-cli php-pear php-curl

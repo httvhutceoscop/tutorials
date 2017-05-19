@@ -38,7 +38,7 @@ Open Docker Quickstart Terminal and enter command:
 ```
 docker-machine ssh default
 
-docker pull image centos:6.8
+docker pull centos:6.8
 ```
 And to list existed images:
 ```

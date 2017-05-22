@@ -108,7 +108,7 @@ docker ps -a
 ```
 3. Access conatiner
 ```
-docker exect -it marc2 bash
+docker exec -it marc2 bash
 ```
 marc2 is container's name is created above.
 

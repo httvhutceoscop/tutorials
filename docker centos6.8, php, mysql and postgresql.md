@@ -30,6 +30,10 @@ With ```--virtualbox-memory``` set to ```8096```
 ```
 docker-machine create --driver virtualbox --virtualbox-memory 8096 testB
 ```
+With `--virtualbox-disk-size` set to `60000`. 60000 = 60GB.
+```
+docker-machine create --driver virtualbox --virtualbox-disk-size 60000 marc2
+```
 # Install containers
 1. Pull image
 You can visit https://hub.docker.com/ to see more image docker.

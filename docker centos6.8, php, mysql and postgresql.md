@@ -165,6 +165,8 @@ Sometimes you can use below command to import large sql file.
 SET GLOBAL max_allowed_packet=1073741824;
 ```
 
+You can use this ref to reset root's password: https://support.rackspace.com/how-to/mysql-resetting-a-lost-mysql-root-password/
+
 ```
 service mysql restart
 ```

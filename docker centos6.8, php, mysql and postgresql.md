@@ -68,6 +68,8 @@ After these command, project folder was shared to Virtualbox. However docker mac
 
 Open Docker toolbox and type:
 ```
+docker-machine start default
+
 docker-machine ssh default
 ```
 ```

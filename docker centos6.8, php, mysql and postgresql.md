@@ -177,6 +177,9 @@ And ref to allow remote connection to postgresql database using psql: http://www
 
 Maybe you must create role for postgres, see: https://www.postgresql.org/docs/9.3/static/sql-createrole.html
 
+======== Backup and restore =========
+https://www.postgresql.org/docs/9.3/static/backup-dump.html#BACKUP-DUMP-RESTORE
+
 ### Install apache
 ```
 yum --enablerepo=remi install php php-common

@@ -69,7 +69,13 @@ After these command, project folder was shared to Virtualbox. However docker mac
 Open Docker toolbox and type:
 ```
 docker-machine start default
+```
+If there is a message "Started machines may have new IP address. You may need to re-run the `docker-machine env` command.
+```
+docker-machine env
+```
 
+```
 docker-machine ssh default
 ```
 ```

@@ -155,7 +155,9 @@ mysql –u root –p
 ```
 ```
 CREATE USER 'root'@'%' IDENTIFIED BY 'password_here';
+
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+
 FLUSH PRIVILEGES;
 ```
 ```

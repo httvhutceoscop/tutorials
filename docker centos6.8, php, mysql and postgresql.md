@@ -160,6 +160,11 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
 
 FLUSH PRIVILEGES;
 ```
+Sometimes you can use below command to import large sql file.
+```
+SET GLOBAL max_allowed_packet=1073741824;
+```
+
 ```
 service mysql restart
 ```

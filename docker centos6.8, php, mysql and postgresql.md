@@ -96,7 +96,7 @@ After these steps above, folder project has been mount with Virtualbox. Now we w
 In docker toolbox type command:
 
 ```
-docker run –it –d -–name=marc2 –p 80:80 –p 7001:7001 –p 8081:8081 –p 3306:3306 –p 5432:5432 –v /c/projects/marc2:/var/www/marc2.lo/public_html centos:6.8
+docker run -t –i –d -–name=marc2 –p 80:80 –p 7001:7001 –p 8081:8081 –p 3306:3306 –p 5432:5432 –v /c/projects/marc2:/var/www/marc2.lo/public_html centos:6.8
 ```
 Here i added 3 http port and 2 sql port. 3306 is for MySQL and 5432 is for Postgresql.
 "-–name=marc2" is the name of container "mar2"

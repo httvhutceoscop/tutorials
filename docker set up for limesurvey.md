@@ -23,14 +23,20 @@ Default:
 ```
 docker-machine create --driver virtualbox testA
 ```
+`testA` is name of machine
+
 With ```--virtualbox-memory``` set to ```8096```
 ```
-docker-machine create --driver virtualbox --virtualbox-memory 8096 testB
+docker-machine create --driver virtualbox --virtualbox-memory machine_memory_size machine_name
 ```
+For example: `machine_memory_size` : 8096 MB, `machine_name` : testB
+
 With `--virtualbox-disk-size` set to `60000`. 60000 = 60GB.
 ```
-docker-machine create --driver virtualbox --virtualbox-disk-size 60000 marc2
+docker-machine create --driver virtualbox --virtualbox-disk-size machine_disk_size machine_name
 ```
+`machine_disk_size` : 60000 MB
+
 # Share folder between project folder and VirtualBox
 ```
 docker-machine stop default

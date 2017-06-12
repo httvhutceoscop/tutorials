@@ -6,87 +6,88 @@ Show log options:
   
 Create new branch:
     
-  hg branch new-branch
+  `hg branch new-branch`
   
 Commit branch: 
     
-  hg commit -m "descripton here"
+  `hg commit -m "descripton here"`
   
 Show created branches: 
     
-  hg branches
+  `hg branches`
   
 Switch branch: 
   
-  hg update branch-name
+  `hg update branch-name`
   
-  hg checkout branch-name
+  `hg checkout branch-name`
   
 Delete file:  
 
-  del filename
+  `del filename`
 
 Revert commit:  
 
-  hg revert --all
+  `hg revert --all`
   
 Check status:
 
-    hg status
-        M - file modified
-        i - file missing
-        ? - unknown file
-        A - Added
-        R - Removed
+        hg status
+                M - file modified
+                i - file missing
+                ? - unknown file
+                A - Added
+                R - Removed      
+        
     
 Check different with last commit: `hg diff filename`
 
 Schedules files to be removed from the repository. They won’t actually be removed until you commit. : 
 
-    hg remove filename
+   `hg remove filename`
   
 Shows an revision of any file: 
 
-    hg cat -r 0:1 filename
+   `hg cat -r 0:1 filename`
   
 Update the working directory to a particular revision: 
 
-    hg update -r revison-number
+   `hg update -r revison-number`
 
 Create new repository:
 
-    hg init
+   `hg init`
   
 Runs a web server to make the current repository accessible over the Internet:
 
-    hg serve
+   `hg serve`
   
 Make a complete copy of an entire repository:
 
-    hg clone URL name-repository
+   `hg clone URL name-repository`
   
 Push new changes from this repository into another:
 
-    hg push
+   `hg push`
 List changes in current repository waiting to be pushed:
 
-    hg outgoing
+   `hg outgoing`
   
 List changes in current repository will be gotten:
 
-    hg incoming
+   `hg incoming`
   
 Pull code:
 
-    hg pull
+   `hg pull`
   
 Merge two heads:
 
-    hg merge
+   `hg merge`
   
 Show the changeset that’s in the working directory:
 
-    `hg parent`
+   `hg parent`
 
 ==============================
 

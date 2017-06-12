@@ -30,15 +30,17 @@ Revert commit:
 
   `hg revert --all`
   
-Check status:  
+Check status:
 
-    `hg status
+    ```
+    hg status
         M - file modified
         i - file missing
         ? - unknown file
         A - Added
         R - Removed
-    `
+    ```
+    
 Check different with last commit: `hg diff filename`
 
 Schedules files to be removed from the repository. They won’t actually be removed until you commit. : 

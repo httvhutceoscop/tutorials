@@ -116,3 +116,40 @@ When you’re working on a team, your workflow is going to look a lot like this:
 #Ref:
 
 http://hginit.com/index.html
+
+
+# how to merge branch
+
+You write that you
+
+```
+want to occasionally merge my changes into default and then continue working in the named branch
+
+You should normally not merge the feature branch into the default branch, unless the feature is done. Maybe that is what you meant?
+```
+
+Just for reference, the recommended workflow is to do
+
+Create feature branch
+
+Do your work there
+
+Regularly (every couple of days) merge changes from `default` into the feature branch:
+
+`hg pull` to get the latest changes from the other developers
+
+`hg merge` to integrate the latest changes into your feature branch
+
+When the feature branch is all done, you merge it back into `default`:
+
+`hg pull`
+
+`hg update default` to checkout the branch you want to merge into
+
+`hg merge myfeature` to do the merge
+
+The final merge will be very small since the regular merges of `default` into the feature branch makes sure that there is only a small distance from the two branch heads back to a common ancestor.
+
+Ref:
+- https://stackoverflow.com/questions/8432607/should-one-merge-a-named-branch-into-the-default-branch-first-or-vice-versa?rq=1
+- https://stackoverflow.com/questions/5707962/how-to-merge-two-branches-in-mercurial-when-there-is-nothing-to-merge

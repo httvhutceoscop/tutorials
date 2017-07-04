@@ -4,6 +4,8 @@ Show log options:
     
   `hg log [OPTION]`
   
+  `hg log --limit 5`
+  
 Create new branch:
     
   `hg branch new-branch`

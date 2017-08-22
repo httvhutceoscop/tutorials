@@ -6,6 +6,8 @@ In order to store your password. You have to change myUser and myPass for your c
 [reviewboard]
 password = myPass
 [ui]
-username = myUser
+username = YourName <yourmail@example.com>
 ssh = "C:\Program Files\TortoiseHg\lib\TortoisePlink.exe" -l myUser -pw  myPass
 ```
+
+`myUser` and `myPass` are your login account of mercurial.

@@ -187,7 +187,7 @@ https://www.postgresql.org/docs/9.3/static/backup-dump.html#BACKUP-DUMP-RESTORE
 ### Install apache
 ```
 yum --enablerepo=remi install php php-common
-yum --enablerepo=remi install php-mysqlnd php-pgsql php-pecl-mongo php-pdo php-pecl-memcache php-pecl-memcached php-gd php-xml php-mbstring php-mcrypt php-pecl-apcu php-cli php-pear php-curl
+yum --enablerepo=remi install php-mysqlnd php-pgsql php-pecl-mongo php-pdo php-pecl-memcache php-pecl-memcached php-gd php-xml php-mbstring php-mcrypt php-pecl-apcu php-cli php-pear php-curl php-devel
 ```
 We will config httpd:
 ```

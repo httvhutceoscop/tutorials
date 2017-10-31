@@ -1,24 +1,39 @@
 Create new a migration:
+
+```
 php artisan make:migration create_users_table --create="users"
 php artisan migrate
+```
 
 Rollback migration:
+
+```
 php artisan migrate:rollback
+```
 
 Alter table:
+
+```
 php artisan make:migration do_something_to_users --table="users"
 php artisan migrate
+```
 
 Ref: https://laravel.com/docs/5.4/migrations
 
 
 Tao moi model:
+
+```
 php artisan make:model Articles
+```
 
 Ref: https://laravel.com/docs/5.4/eloquent
 
 Tool tuong tac voi Laravel:
+
+```
 php artisan tinker
+```
 
 Mo hinh MVC trong laravel
 
@@ -27,10 +42,10 @@ Form trong laravel
 Ref: https://laravelcollective.com/docs/5.4/html#installation
 
 Date trong Laravel
-- Su dung: composer require nesbot/carbon
+- Su dung: `composer require nesbot/carbon`
 
 Form validation
-- Tao rule form validation: php artisan make:request CheckArticlesRequest
+- Tao rule form validation: `php artisan make:request CheckArticlesRequest`
 
 Cap nhat du lieu trong form
 - Xem cac list cac route: php artisan route:list
@@ -46,12 +61,15 @@ Cau hinh mail va gui mail reset password thanh cong
 
 
 # Create Form Request:
+
+```
 php artisan make:request UserFormRequest
+```
 
 # Cache Trong Laravel:
 - Popular cache: Memcached, Redis
 - In-memory cache
-- Database ==> create a cache table: php artisan make:model Cache -m
+- Database ==> create a cache table: `php artisan make:model Cache -m`
 - Memcached: required installation: http://pecl.php.net/package/memcached
 - Redis: details in https://laravel.com/docs/5.4/redis#configuration
 

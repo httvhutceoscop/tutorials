@@ -176,16 +176,22 @@ service mysql restart
 ```
 
 ### Install postgresql
-Ref to install: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-6
+Ref to install: 
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-6
+
 And ref to allow remote connection to postgresql database using psql and set password for postgres user: 
 
 http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html
 
 http://www.thegeekstuff.com/2014/02/enable-remote-postgresql-connection/?utm_source=tuicool
 
-Maybe you must create role for postgres, see: https://www.postgresql.org/docs/9.3/static/sql-createrole.html
+Maybe you must create role for postgres, see: 
+
+https://www.postgresql.org/docs/9.3/static/sql-createrole.html
 
 ======== Backup and restore =========
+
 https://www.postgresql.org/docs/9.3/static/backup-dump.html#BACKUP-DUMP-RESTORE
 
 ### Install apache

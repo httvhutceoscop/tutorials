@@ -1,3 +1,6 @@
+# Keyword
+scaffold
+
 Create new a migration:
 
 ```
@@ -18,7 +21,26 @@ php artisan make:migration do_something_to_users --table="users"
 php artisan migrate
 ```
 
+Copy your migration file to a temporal folder "temp" in migrations folder, then run (paths as in L5):
+
+```
+php artisan migrate --path=database/migrations/temp
+```
+
+This way it will only run that file without messing with your current tables.
+
 Ref: https://laravel.com/docs/5.4/migrations
+
+Tạo seeder trong laravel:
+
+```
+php artisan make:seed seedName
+```
+
+-Tiếp đó chúng ta sẽ có hai cách chạy:
+
+Dùng lệnh: `php artisan db:seed --class=Users`
+Vào file `DatabaseSeeder.php` thêm đoạn `$this->call(Users::class);` vào hàm run (Users có thể thay đổi bằng tên file của bạn muốn thực hiện lệnh) và chúng ta lại dùng lệnh `php artisan db:seed`
 
 
 Tao moi model:
@@ -29,13 +51,13 @@ php artisan make:model Articles
 
 Ref: https://laravel.com/docs/5.4/eloquent
 
-Tool tuong tac voi Laravel:
+# Tool tuong tac voi Laravel:
 
 ```
 php artisan tinker
 ```
 
-Mo hinh MVC trong laravel
+# Mo hinh MVC trong laravel
 
 Form trong laravel
 - su dung service: composer require "laravelcollective/html":"^5.4.0"
@@ -50,7 +72,7 @@ Form validation
 Cap nhat du lieu trong form
 - Xem cac list cac route: php artisan route:list
 
-Authentication trong laravel
+# Authentication trong laravel
 Tao cac auth file (controllers, models, views)
 php artisan make:auth
 
@@ -75,6 +97,9 @@ php artisan make:request UserFormRequest
 
 - Create cache object: https://laravel.com/docs/5.4/contracts
 - Details about cache: https://laravel.com/docs/5.4/cache
+
+Tao cache config: `php artisan config:cache`
+Xoa cache config: `php artisan config:clear`
 
 # Pretty/Friendly URLs
 - Using eloquent-sluggable (https://github.com/cviebrock/eloquent-sluggable) through composer: 

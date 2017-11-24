@@ -158,3 +158,15 @@ service httpd restart
 ## 6. Kiểm tra kết quả
 
 Nếu cài đặt thành công, khi truy cập vào domain example.com chúng ta sẽ thấy trang mặc định của Apache
+
+# Comment
+
+Bài viết khá tốt, tuy nhiên mình nghĩ bạn nên sửa lại 2 điểm trong bài viết.
+2. Cấu hình Reverse Proxy trên Apache -> đổi thành cấu hình Virtual Host trên Apache.
+Phần về cài đặt thêm module rpaf. rpaf sẽ thay cái giá trị "Remote_Addr", lúc này đang là IP của Proxy thành cái giá trị của header "X-Forwarded-For". Tuy nhiên, việc cài này có cần thiết không cũng nên cân nhắc tuỳ từng context.
+Đối với các app PHP, người ta thường check header "HTTP_X_FORWARDED_FOR" trước khi check "REMOTE_ADDR", do đó nếu script có rồi thì cũng k cần thiết cài. Việc cài thêm module sẽ tốn khá nhiều RAM, hơn nữa ít khi trên production bật access_log của Apache. Thường họ sẽ bật access_log của Nginx vì con này làm việc nhẹ, chỉ forward đi, forward lại (access_log thường dùng phân tích dải IP truy cập, chống DDOS, ...). Còn Apache do phải xử lý script nên chỉ bật error_log mà thôi.
+Ngoài ra, hiện bạn đang để RPAFheader X-Forwarded-For, nếu có 1 con load-balancer đứng ngoài nữa thì Remote_Adrr = X-Forwarded-For = $proxy_add_x_forwarded_for = a.a.a.a, b.b.b.b, ... với b.b.b.b là IP của con load-balancer. Do đó, để lấy IP thực là a.a.a.a thì nên đổi RPAFheader X-Real-IP (hoặc X-Forwarded-For $remote_addr).
+Và rpaf = Reverse Proxy Add Forward (không phải Reverse Proxy And Forward), tiếng Anh có nghĩa là sử dụng header thêm X-Forwarded-For của Proxy, lấy giá trị của nó thế vào header "Remote_Addr". Cái này là do lịch sử, các header như X-Forwarded-For, X-Forwarded-Proto[, X-Csrf-Token ... là các header non-standard, không phải webserver nào cũng implement nó.
+
+Mô hình sử dụng Proxy thì có nhiều mục đích: ví dụ như làm LoadBalancer (phải config cả Proxy + Reverse Proxy), làm gateway khi serve dynamic content và static file, ...
+Ví dụ ở trường hợp thứ 2: NginX serve static file nhanh hơn rất nhiều Apache (hỗ trợ cache file, ...) trong khi lại khá kém khi serve dynamic do nó phải "giao thông" với 1 app khác (ví dụ như PHP-CGI, PHP-FPM, ...) trong khi Apache lại làm việc này xuất sắc hơn (nó là một module bên trong nên đỡ phải tốn các bước giao thông, marshaling/unmarshaling này nọ, ...). Khi đó, bạn thiết lập Nginx serve static ở 1 folder static, còn serve dynamic thì lấy từ Apache (vừa là webserver, vừa là proxy)

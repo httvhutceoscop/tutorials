@@ -21,7 +21,27 @@ php artisan make:migration do_something_to_users --table="users"
 php artisan migrate
 ```
 
-Copy your migration file to a temporal folder "temp" in migrations folder, then run (paths as in L5):
+# Safely remove migration in laravel
+
+I accidentally created a migration with a bad name (command: php artisan migrate:make). I did not run (php artisan migrate) the migration, so I decided to remove it. My steps:
+
+1. Manually delete the migration file under app/database/migrations/my_migration_file_name.php
+2. Reset the composer autoload files: composer dump-autoload
+3. Relax
+
+If you did run the migration (php artisan migrate), you may do this:
+
+a) Run migrate:rollback - it is the right way to undo the last migration (Thnx @Jakobud)
+
+b) If migrate:rollback does not work, do it manually (I remember bugs with migrate:rollback in previous versions):
+
+1. Manually delete the migration file under app/database/migrations/my_migration_file_name.php
+2. Reset the composer autoload files: composer dump-autoload
+3. Modify your database: Remove the last entry from the migrations table
+
+Ref: https://stackoverflow.com/questions/16871413/safely-remove-migration-in-laravel
+
+# Copy your migration file to a temporal folder "temp" in migrations folder, then run (paths as in L5):
 
 ```
 php artisan migrate --path=database/migrations/temp

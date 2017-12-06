@@ -79,6 +79,7 @@ https://stackoverflow.com/questions/7359827/creating-a-database-dump-for-specifi
 
 cai dat dblink:
 https://stackoverflow.com/questions/5075193/installing-dblink-for-postgres-9
+https://www.dbrnd.com/2015/05/postgresql-cross-database-queries-using/
 
 huong dan su dung dblink:
 http://www.postgresonline.com/journal/archives/44-Using-DbLink-to-access-other-PostgreSQL-Databases-and-Servers.html
@@ -95,12 +96,15 @@ pg_dump -d system -t company_email -s -O | gzip > /var/www/company_email.sql.gz
 pg_dump -d system -t company_email -O --column-inserts | gzip > /var/www/company_email.sql.gz
 
 
-xu ly loi : http://mydebugs.blogspot.com/2010/07/error-starting-postgres.html
+# xu ly loi : #Starting postgresql service: /etc/init.d/postgresql: line 114: echo: write error: Permission denied
+http://mydebugs.blogspot.com/2010/07/error-starting-postgres.html
 
 `netstat -lntp`
 `ps -ef | grep postgres`
 
 # Connect between 2 servers using dblink_connect
+SELECT dblink_connect('ax_conn', 'dbname=system port=5433 host=192.168.0.21 user=postgres');
+SELECT * FROM dblink('ax_conn','SELECT * FROM foo') AS t(a int, b text, c text[]);
 
 
 ```
@@ -117,17 +121,4 @@ GRANT SELECT ON ALL TABLES TO testuser;
 select * from dblink('dbname=test_readonly port=5433 host=192.168.0.16 user=testuser', 'select * from tab') as t1 (a int, b varchar(3));
 
 select dblink_exec('dbname=test_readonly port=5433 host=192.168.0.16 user=testuser', 'create table aa (a int, b int)');
-```
-
-```
-# "local" is for Unix domain socket connections only
-local   all         all                               ident
-# IPv4 local connections:
-host    all         all         127.0.0.1/32          trust
-# IPv6 local connections:
-host    all         all         ::1/128               ident
-
-host    all     all     192.168.1.1/24  trust
-host    all     all     172.17.0.3/24   trust
-host    all     all     192.168.0.16/24  trust
 ```

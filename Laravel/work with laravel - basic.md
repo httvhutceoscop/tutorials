@@ -26,7 +26,7 @@ php artisan migrate
 I accidentally created a migration with a bad name (command: php artisan migrate:make). I did not run (php artisan migrate) the migration, so I decided to remove it. My steps:
 
 1. Manually delete the migration file under app/database/migrations/my_migration_file_name.php
-2. Reset the composer autoload files: composer dump-autoload
+2. Reset the composer autoload files: `composer dump-autoload`
 3. Relax
 
 If you did run the migration (php artisan migrate), you may do this:

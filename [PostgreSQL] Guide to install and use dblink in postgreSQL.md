@@ -1,4 +1,4 @@
-# Hướng dẫn cách cài đặt và sử dụng dblink trong postgreSQL
+# Guide to install and use dblink in postgreSQL
 
 Here we will use 2 postgreSQL databases which are installed on Centos 6.8.
 

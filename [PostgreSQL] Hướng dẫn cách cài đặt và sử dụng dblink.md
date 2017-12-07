@@ -4,6 +4,8 @@
 Server 1: Sẽ sử dụng postgreSQL version 8.4.20
 Server 2: Sẽ sử dụng postgreSQL version 9.3.20
 
+Thông tin cài đặt Centos 6.8 các bạn có thể tìm trên internet
+
 Mình sẽ cài đặt dblink trên server 2 và connect với server 1 từ server 2 thông qua các phương thức của [dblink](https://www.postgresql.org/docs/9.3/static/dblink.html).
 
 # Cài đặt postgreSQL
@@ -82,3 +84,17 @@ Trong đó:
 - x.x.x.x : là địa chỉ host của Server 1
 - DB_USER_1 : là tên user database trên Server 1
 - PASSWORD_1 : là password của user DB_USER_1 trên Server 1
+
+Nếu kết quả trả về là `OK` thì là kết nối thành công
+
+Sau khi kết nối thành công các bạn có thể sử dụng các câu lệnh SQL bình thường.
+
+Ví dụ:
+
+```
+select * from dblink('CONNECT_NAME', 'select * from tab') as t1 (a int, b varchar(3));
+
+select dblink_exec('CONNECT_NAME', 'create table aa (a int, b int)');
+```
+
+Have fun!

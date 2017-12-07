@@ -1,17 +1,25 @@
 # Hướng dẫn cách cài đặt và sử dụng dblink trong postgreSQL
 
-Ở đây sẽ sử dụng 2 server postgreSQL và Centos 6.8
-Server 1: Sẽ sử dụng postgreSQL version 8.4.20
-Server 2: Sẽ sử dụng postgreSQL version 9.3.20
+Here we will use 2 postgreSQL databases which are installed on Centos 6.8.
 
-Thông tin cài đặt Centos 6.8 các bạn có thể tìm trên internet
+Server 1: postgreSQL version 8.4.20
 
-Mình sẽ cài đặt dblink trên server 2 và connect với server 1 từ server 2 thông qua các phương thức của [dblink](https://www.postgresql.org/docs/9.3/static/dblink.html).
+Server 2: postgreSQL version 9.3.20
 
-# Cài đặt postgreSQL
 
-## Cài đặt và cấu hình postgreSQL 8.4.20
-### Cài đặt
+# Install Centos 6.8
+Firstly, you have to have 2 Centos 6.8 servers.
+
+You can use the docker to do these. It's very easy.
+
+Using internet for more information. Hehehe.
+
+dblink extension will be created on the database on the Server 2 and then it will connects to the database on Server 1 by using these [dblink methods](https://www.postgresql.org/docs/9.3/static/dblink.html).
+
+# Installing postgreSQL
+
+## Installing and configuring postgreSQL 8.4.20
+### Installing
 
 ```
 yum install -y postgresql postgresql-server
@@ -21,40 +29,40 @@ service postgresql initdb
 service postgresql start
 ```
 
+### Configuring
+- Allow remote connection: [Remote connection](http://www.thegeekstuff.com/2014/02/enable-remote-postgresql-connection/?utm_source=tuicool)
+
+- Set password for `postgres` user: [Change password](http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html)
+
+- Create role: [Create role](https://www.postgresql.org/docs/8.4/static/sql-createrole.html)
+
+## Installing and configuring postgreSQL 9.3.20
+### Installing
+Following tutorial [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-6).
 ### Cấu hình
-- Cho phép kết nối từ xa: [Remote connection](http://www.thegeekstuff.com/2014/02/enable-remote-postgresql-connection/?utm_source=tuicool)
+- Allow remote connection: [Remote connection](http://www.thegeekstuff.com/2014/02/enable-remote-postgresql-connection/?utm_source=tuicool)
 
-- Thiết lập mật khẩu cho user `postgres`: [Change password](http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html)
+- Set password for `postgres` user: [Change password](http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html)
 
-- Tạo mới role hoặc user: [Create role](https://www.postgresql.org/docs/8.4/static/sql-createrole.html)
+- Create role: [Create role](https://www.postgresql.org/docs/9.3/static/sql-createrole.html)
 
-## Cài đặt và cấu hình postgreSQL 9.3.20
-### Cài đặt
-Các bạn cài đặt theo hướng dẫn ở [đây](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-6).
-### Cấu hình
-- Cho phép kết nối từ xa: [Remote connection](http://www.thegeekstuff.com/2014/02/enable-remote-postgresql-connection/?utm_source=tuicool)
+# Installing dblink extension on Server 2 (postgreSQL 9.3)
 
-- Thiết lập mật khẩu cho user `postgres`: [Change password](http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html)
-
-- Tạo mới role hoặc user: [Create role](https://www.postgresql.org/docs/9.3/static/sql-createrole.html)
-
-# Cài đặt dblink extension trên server 2 (postgreSQL 9.3)
-
-Cài đặt các gói `contrib` trên server:
+Installing `contrib` packages on server:
 
 ```
 yum install postgres*contrib
 ```
 
-Sau khi cài đặt các gói `contrib` xong thì các bạn có thể tìm `dblink.sql` với câu lệnh sau:
+After installing `contrib` packages successfully, you can find `dblink.sql` with following command:
 
 ```
 find / -name dblink.sql
 ```
 
-Cài đặt dblink extension bên trong database muốn sử dụng:
+Installing dblink extension within database you want to use:
 
-Kết nối vào database:
+Connect to database:
 
 ```
 su - postgres
@@ -68,28 +76,28 @@ psql DB_NAME
 CREATE EXTENSION dblink;
 ```
 
-# Kiểm tra kết nối giữa 2 server sử dụng dblink_connect
+# Checking connection between 2 server by using dblink_connect
 
-Trước tiên access vào database đã create extension dblink ở trên.
+First, you have to access database what created extension dblink above.
 
-Sau đó kiểm tra kết nối bằng lệnh sau:
+End then checking connection by command:
 
 ```
 SELECT dblink_connect('CONNECT_NAME', 'dbname=DB_NAME_1 port=5432 host=x.x.x.x user=DB_USER_1 password=PASSWORD_1');
 ```
 
-Trong đó:
-- CONNECT_NAME : là tên tuỳ ý đặt cho dblink_connect
-- DB_NAME_1 : là tên database được tạo ở Server 1
-- x.x.x.x : là địa chỉ host của Server 1
-- DB_USER_1 : là tên user database trên Server 1
-- PASSWORD_1 : là password của user DB_USER_1 trên Server 1
+Therein:
+- CONNECT_NAME : any text
+- DB_NAME_1 : database name on Server 1
+- x.x.x.x : IP of Server 1
+- DB_USER_1 : database user on Server 1
+- PASSWORD_1 : DB_USER_1'password on Server 1
 
-Nếu kết quả trả về là `OK` thì là kết nối thành công
+If the result is `OK`, the connection is succesful.
 
-Sau khi kết nối thành công các bạn có thể sử dụng các câu lệnh SQL bình thường.
+After connecting successfully, you can use SQL statement normally.
 
-Ví dụ:
+Example:
 
 ```
 select * from dblink('CONNECT_NAME', 'select * from tab') as t1 (a int, b varchar(3));

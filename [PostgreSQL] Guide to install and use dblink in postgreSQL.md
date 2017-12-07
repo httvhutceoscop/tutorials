@@ -39,7 +39,7 @@ service postgresql start
 ## Installing and configuring postgreSQL 9.3.20
 ### Installing
 Following tutorial [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-6).
-### Cấu hình
+### Configuring
 - Allow remote connection: [Remote connection](http://www.thegeekstuff.com/2014/02/enable-remote-postgresql-connection/?utm_source=tuicool)
 
 - Set password for `postgres` user: [Change password](http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html)

@@ -144,8 +144,6 @@ psql DB_NAME
 SELECT * FROM dblink('dbname=DB_NAME', 'select name, title from pages') AS t1(name text, title text);
 ````
 
-And hey presto it works... and it only took 3 hours.
-
 # Ref
 https://www.postgresql.org/message-id/f642fc4f-d81f-48a0-ae6f-30a210e42f4c@11g2000prv.googlegroups.com
 

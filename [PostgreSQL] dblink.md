@@ -1,16 +1,9 @@
-dblink
-pg_dump
-dong port postgres
-marc2 bug
-
-thống kê luỹ kế lỗi theo tuần, tháng
-ISTQB - cải thiện test case, ==> cần chiến lược
-tìm web test case template trên google.
-
-#Đổi port của postgreSQL
+# Đổi port của postgreSQL
 
 Sửa port trong file này:
+```
 vi /var/lib/pgsql/data/postgresql.conf
+```
 
 Tìm file này `/etc/init.d/postgresql-9.3` 
 Tìm `PGPORT = 5432` và đổi sang port muốn.

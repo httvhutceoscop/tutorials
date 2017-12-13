@@ -36,6 +36,8 @@ service postgresql start
 
 - Create role: [Create role](https://www.postgresql.org/docs/8.4/static/sql-createrole.html)
 
+After configuring, restart postgresql service: `service postgresql restart`
+
 ## Installing and configuring postgreSQL 9.3.20
 ### Installing
 Following tutorial [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-6).
@@ -59,6 +61,8 @@ After installing `contrib` packages successfully, you can find `dblink.sql` with
 ```
 find / -name dblink.sql
 ```
+
+Result will show: `/usr/share/pgsql/contrib/dblink.sql`
 
 Installing dblink extension within database you want to use:
 
@@ -104,5 +108,45 @@ select * from dblink('CONNECT_NAME', 'select * from tab') as t1 (a int, b varcha
 
 select dblink_exec('CONNECT_NAME', 'create table aa (a int, b int)');
 ```
+
+# More information
+
+## Install dblink on postgreSQL 8.4
+
+Tried to do a "use database" within postgres.
+
+Read the doco which said to use dblink. However this produced the
+following error: "No function matches the given name and argument
+types. You might need to add explicit type casts."
+
+So installed
+apt-get install postgresql-contrib-8.3
+
+But it still didnt work. Read some more:
+
+```
+find /usr/share/postgresql -name dblink.sql  
+```
+
+Result will show: `/usr/share/pgsql/contrib/dblink.sql`
+
+```
+su - postgres
+```
+
+```
+psql -d crm_db -f /usr/share/pgsql/contrib/dblink.sql -p 5434
+```
+
+
+```
+psql DB_NAME
+SELECT * FROM dblink('dbname=DB_NAME', 'select name, title from pages') AS t1(name text, title text);
+````
+
+And hey presto it works... and it only took 3 hours.
+
+# Ref
+https://www.postgresql.org/message-id/f642fc4f-d81f-48a0-ae6f-30a210e42f4c@11g2000prv.googlegroups.com
 
 Have fun!

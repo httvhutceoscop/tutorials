@@ -138,6 +138,11 @@ su - postgres
 psql -d crm_db -f /usr/share/pgsql/contrib/dblink.sql -p 5434
 ```
 
+## Create language if not exists:
+
+```
+CREATE LANGUAGE plpgsql;
+```
 
 ```
 psql DB_NAME

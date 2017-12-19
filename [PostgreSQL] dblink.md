@@ -1,3 +1,28 @@
+Cai dat package thong qua rpm:
+
+Ref: https://www.rpmfind.net/linux/rpm2html/search.php?query=postgresql-contrib
+
+```
+rmp -Uvh https://www.rpmfind.net/linux/centos/6.9/os/x86_64/Packages/postgresql-contrib-8.4.20-7.el6.x86_64.rpm
+```
+
+Cat dat dblink cho database mong muon
+
+```
+su - postgres
+```
+
+```
+psql -d crm -f /usr/share/pgsql/contrib/dblink.sql -p 5432
+```
+
+Create language if not exists:
+
+```
+CREATE LANGUAGE plpgsql;
+```
+
+
 # Đổi port của postgreSQL
 
 Sửa port trong file này:
@@ -8,7 +33,7 @@ vi /var/lib/pgsql/data/postgresql.conf
 Tìm file này `/etc/init.d/postgresql-9.3` 
 Tìm `PGPORT = 5432` và đổi sang port muốn.
 
-
+```
 curl -O https://download.postgresql.org/pub/repos/yum/9.3/redhat/rhel-6-x86_64/pgdg-centos93-9.3-3.noarch.rpm
 
 rpm -Uvh https://yum.postgresql.org/8.4/redhat/rhel-6-x86_64/pgdg-centos-8.4-3.noarch.rpm
@@ -25,11 +50,15 @@ createdb test
 psql test
 CREATE ROLE testuser WITH SUPERUSER LOGIN PASSWORD 'test';
 psql -h dbserver -U testuser test
+```
 
+```
 psql -h 192.168.0.16 -U testuser test
 
 psql -p 5433 -h 192.168.0.16 -U postgres
+
 find / -name dblink.sql
+```
 
 ```
 pg_dump --host localhost --port 5432 --username postgres --format plain --ignore-version --verbose --file "C:\temp\filename.backup" --table public.tablename dbname

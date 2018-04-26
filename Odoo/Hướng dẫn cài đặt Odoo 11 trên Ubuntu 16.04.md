@@ -131,7 +131,7 @@ sudo chmod 640 /etc/odoo-server.conf
 
 # Bước 7:
 
-Cài đặt boot script cho Odoo. Chúng tao cần tạo 1 instance cho phép khởi động, shutdow hoặc restart service Odoo. Các bạn có thể sử dụng script mẫu này và để trong đường dẫn /etc/init.d đặt tên file là odoo-server. Sau đó cho phép thực thi file script và gán quyền cho nó:
+Cài đặt boot script cho Odoo. Chúng tao cần tạo 1 instance cho phép khởi động, shutdow hoặc restart service Odoo. Các bạn có thể sử dụng script mẫu (https://raw.githubusercontent.com/mohitg1213/odoo_scripts/master/odoo-server) này và để trong đường dẫn /etc/init.d đặt tên file là odoo-server. Sau đó cho phép thực thi file script và gán quyền cho nó:
 
 ```
 sudo chmod 755 /etc/init.d/odoo-server
@@ -201,3 +201,6 @@ sudo update-rc.d odoo-server defaults
 ```
 
 Bạn có thể thử khởi động lại Ubuntu Server và kiểm tra xem nó có hoạt động không nhé.
+
+# Ref
+https://homnaycodegi.com/odoo11/hot-huong-dan-cai-dat-odoo-11-tren-ubuntu-16-04.html

@@ -64,8 +64,10 @@ Restart Apache
 Access website by http and https
 
 http://zenkokuban.lo/
+
 https://zenkokuban.lo/
 
 # Ref
 https://www.sitecuatui.com/cai-dat-ssl/
+
 https://wiki.centos.org/HowTos/Https

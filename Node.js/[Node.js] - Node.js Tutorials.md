@@ -148,7 +148,7 @@ console.log("Program Ended");
 ```
 
 ## Non-Blocking Code Example
-```
+```javascript
 var fs = require("fs");
 
 fs.readFile('input.txt', function (err, data) {

@@ -139,7 +139,7 @@ npm publish
 
 # Node.js - Callbacks Concept
 ## Blocking Code Example
-```
+```javascript
 var fs = require("fs");
 var data = fs.readFileSync('input.txt');
 
@@ -173,7 +173,7 @@ These two examples explain the concept of blocking and non-blocking calls.
 
 ## Example
 
-```
+```javascript
 // Import events module
 var events = require('events');
 
@@ -207,7 +207,7 @@ console.log("Program Ended.");
 
 # Node.js - Event Emitter
 ## Example
-```
+```javascript
 var events = require('events');
 var eventEmitter = new events.EventEmitter();
 
@@ -253,23 +253,23 @@ Buffer class is a global class that can be accessed in an application without im
 ## Creating Buffers
 
 - Method 1
-```
+```javascript
 var buf = new Buffer(10); // 10 octets
 ```
 - Method 2
-```
+```javascript
 var buf = new Buffer([10, 20, 30, 40, 50]); // given array
 ```
 - Method 3
 Following is the syntax to create a Buffer from a given string and optionally encoding type −
-```
+```javascript
 var buf = new Buffer("Simply Easy Learning", "utf-8"); // given string and optionally encoding type
 ```
 Though "utf8" is the default encoding, you can use any of the following encodings "ascii", "utf8", "utf16le", "ucs2", "base64" or "hex".
 
 ## Writing to Buffers
 ### Syntax
-```
+```javascript
 buf.write(string[, offset][, length][, encoding])
 ```
 ### Parameters
@@ -283,7 +283,7 @@ This method returns the number of octets written. If there is not enough space i
 
 ## Reading from Buffers
 ### Syntax
-```
+```javascript
 buf.toString([encoding][, start][, end])
 ```
 ### Parameters
@@ -295,7 +295,7 @@ buf.toString([encoding][, start][, end])
 This method decodes and returns a string from buffer data encoded using the specified character set encoding.
 ## Convert Buffer to JSON
 ### Syntax
-```
+```javascript
 buf.toJSON()
 ```
 ### Return Value
@@ -303,7 +303,7 @@ This method returns a JSON-representation of the Buffer instance.
 
 ## Concatenate Buffers
 ### Syntax
-```
+```javascript
 Buffer.concat(list[, totalLength])
 ```
 ### Parameters
@@ -315,7 +315,7 @@ This method returns a Buffer instance.
 
 ## Compare Buffers
 ### Syntax
-```
+```javascript
 buf.compare(otherBuffer);
 ```
 ### Parameters
@@ -326,7 +326,7 @@ Returns a number indicating whether it comes before or after or is the same as t
 
 ## Copy Buffer
 ### Syntax
-```
+```javascript
 buf.copy(targetBuffer[, targetStart][, sourceStart][, sourceEnd])
 ```
 ### Parameters
@@ -340,7 +340,7 @@ No return value. Copies data from a region of this buffer to a region in the tar
 
 ## Slice Buffer
 ### Syntax
-```
+```javascript
 buf.slice([start][, end])
 ```
 ### Parameters
@@ -352,7 +352,7 @@ Returns a new buffer which references the same memory as the old one, but offset
 
 ## Buffer Length
 ### Syntax
-```
+```javascript
 buf.length;
 ```
 ### Return Value
@@ -377,7 +377,7 @@ Each type of Stream is an EventEmitter instance and throws several events at dif
 - **finish** − This event is fired when all the data has been flushed to underlying system.- **
 
 ## Reading from a Stream
-```
+```javascript
 var fs = require("fs");
 var data = '';
 
@@ -403,7 +403,7 @@ readerStream.on('error', function(err) {
 console.log("Program Ended");
 ```
 ## Writing to a Stream
-```
+```javascript
 var fs = require("fs");
 var data = 'Simply Easy Learning';
 
@@ -429,7 +429,7 @@ console.log("Program Ended");
 
 ```
 ## Piping the Streams
-```
+```javascript
 var fs = require("fs");
 
 // Create a readable stream
@@ -445,7 +445,7 @@ readerStream.pipe(writerStream);
 console.log("Program Ended");
 ```
 ## Chaining the Streams
-```
+```javascript
 var fs = require("fs");
 var zlib = require('zlib');
 
@@ -458,7 +458,7 @@ console.log("File Compressed.");
 ```
 Decompresse file:
 
-```
+```javascript
 var fs = require("fs");
 var zlib = require('zlib');
 
@@ -473,11 +473,11 @@ console.log("File Decompressed.");
 
 # Node.js - File System
 Imported by syntax
-```
+```javascript
 var fs = require("fs")
 ```
 ## Synchronous vs Asynchronous
-```
+```javascript
 var fs = require("fs");
 
 // Asynchronous read
@@ -524,7 +524,7 @@ console.log("Program Ended");
 
 ## Creating a Web Server using Node
 server.js
-```
+```javascript
 var http = require('http');
 var fs = require('fs');
 var url = require('url');
@@ -565,7 +565,7 @@ console.log('Server running at http://127.0.0.1:8081/');
 ```
 ## Creating Web client using Node
 client.js
-```
+```javascript
 var http = require('http');
 
 // Options to be used by request 

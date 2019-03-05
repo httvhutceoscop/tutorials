@@ -1,0 +1,17 @@
+{
+  "name": "my-eslint",
+  "version": "1.0.0",
+  "description": "Start learning Nodejs by hello world",
+  "main": "index.js",
+  "scripts": {
+		"lint": "eslint index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Viet NT",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "5.15.1",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.16.0"
+  }
+}

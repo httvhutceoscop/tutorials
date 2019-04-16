@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learn Lodash</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js" integrity="sha256-7/yoZS3548fXSRXqc/xYzjsmuW3sFKzuvOCHd06Pmps=" crossorigin="anonymous"></script>
+    <script>
+    console.log(_.chunk(['a', 'b', 'c', 'd'], 2));
+    // => [['a', 'b'], ['c', 'd']]
+    console.log(_.chunk(['a', 'b', 'c', 'd'], 3));
+    // => [['a', 'b', 'c'], ['d']]
+    console.log(_.compact([0, 1, false, 2, '', 3]));
+    // => [1, 2, 3]
+    </script>
+</body>
+
+</html>

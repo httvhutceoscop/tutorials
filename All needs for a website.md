@@ -1,26 +1,31 @@
-# CMS
+## CMS
 Grav
 
-# Widget
+## Widget
 - Google Plus
 
-# Web Server
+## Web Server
 - Express
 
-# Analytic
+## Analytic
 - Quantcast
 - Google Analytics
 
-# JavaScript Framework
+## JavaScript Framework
 - Handlebars
 - Socket.io
+- AngularJS
+- Zone.js
+	- console google developer
 
-# JavaScript Graphics
+## JavaScript Graphics
 - MathJax
 - Mermaid
 - Raphael
+- D3
+	- console google developer
 
-# JavaScript Libraries
+## JavaScript Libraries
 - Lodash
 - Moment.js
 - Select2
@@ -33,31 +38,35 @@ Grav
 - Anime.js
 - Popmotion
 - GreenSock
+- Hammer.js
+- XRegExp
+	- console google developer
 
-# Miscellaneous
+## Miscellaneous
 - CodeMirror
+	- console google developer
 - Highlight.js
 - Prism
 - webpack
 
-# Web Framework
+## Web Framework
 - Express
 - Bootstrap
 
-# Tag Manager
+## Tag Manager
 - Google Tag Manager
 
-# Programming Language
+## Programming Language
 - Node.js
 - PHP
 
-# CDN
+## CDN
 - CloudFare
 
-# CSS Libraries
+## CSS Libraries
 - animate.css
 
-# Thư viện virtual DOM
+## Thư viện virtual DOM
 - redom
 - ultradom
 - preact

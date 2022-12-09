@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "body-parser": "1.18.3",
-    "express": "4.16.4",
+    "express": "4.17.3",
     "jwt-simple": "0.5.5",
     "passport": "0.4.0",
     "passport-http-bearer": "1.0.1",
